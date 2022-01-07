@@ -1,0 +1,18 @@
+{
+	"dependencies": {
+		"@discordjs/builders": "^0.11.0",
+		"@discordjs/rest": "^0.2.0-canary.0",
+		"discord-api-types": "^0.26.1",
+		"discord.js": "^13.5.1"
+	},
+	"scripts": {
+		"generate": "node gen-slash.js",
+		"start": "node ."
+	},
+	"name": "discordjs-boilerplate",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/polargh/djs-boilerplate.git",
+	"author": "Polar <89708970+polargh@users.noreply.github.com>",
+	"license": "MIT"
+}
