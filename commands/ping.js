@@ -10,7 +10,6 @@ module.exports = {
 			.setColor("#2F3136")
 			.setTitle(":ping_pong: Pong!")
 			.setDescription(`The ping of the bot is ${Math.round(client.ws.ping)}ms`)
-			.setFooter("© neo");
 		await interaction.reply({ embeds: [Embed] });
 	},
 };
