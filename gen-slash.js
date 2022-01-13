@@ -2,18 +2,13 @@
 
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const config = require("./config.json");
+const { token, client_id, guild_id } = require("./config.json");
 const fs = require("fs");
 
 // Command Files
 
 const commands = [];
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
-
-// Constants
-
-const clientId = config.client_id;
-const guildId = config.guild_id;
 
 // Getting the files lol
 
@@ -24,7 +19,7 @@ for (const file of commandFiles) {
 
 // Importing REST as a constant (v9)
 
-const rest = new REST({ version: "9" }).setToken(config.token);
+const rest = new REST({ version: "9" }).setToken(token);
 
 // Registering (/) Slash Commands
 
@@ -32,7 +27,7 @@ const rest = new REST({ version: "9" }).setToken(config.token);
 	try {
 		console.log("⏰ Started refreshing slash commands.");
 
-		await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });
+		await rest.put(Routes.applicationGuildCommands(client_id, guild_id), { body: commands });
 
 		console.log("🚀 Reloaded slash commands!");
 	} catch (error) {
